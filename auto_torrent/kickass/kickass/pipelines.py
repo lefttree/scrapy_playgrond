@@ -28,7 +28,6 @@ class TorrentPipeline(object):
     def process_item(self, item, spider):
         print "Downloading " + item['title'][0]
         path = item['torrent'][0]
-        with open("torr_test", "wb") as f:
-            f.write(item["title"][0] + "  " + item['torrent'][0])
+        subprocess.call(['kickass/curl_torrent.sh', path])
         time.sleep(10)
         return item

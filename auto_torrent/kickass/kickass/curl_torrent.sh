@@ -13,6 +13,6 @@ if [ ! -n "$1"]; then
     usage
 fi
 
-#name=`echo $1 | sed 's/.*kickass.to.//'`".torrent'"
-#curl --globoff --compressed -A '$AGENT' -L --post302 $1 > $name
-#transmission -m $name
+name=`echo $1 | sed 's/.*kickass.to.//'`".torrent"
+curl --globoff --compressed -A '$AGENT' -L --post302 $1 > $name
+btc add $name

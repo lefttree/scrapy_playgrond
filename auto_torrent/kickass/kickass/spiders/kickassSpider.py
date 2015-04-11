@@ -38,9 +38,9 @@ class KickassspiderSpider(scrapy.Spider):
             item['seed'] = entry.xpath('td[5]/text()').extract()
             item['leech'] = entry.xpath('td[6]/text()').extract()
             
-            print item
             for s in self.keywords:
                 if s.lower() in item['title'][0].lower():
                     items.append(item)
+                    print item
                     break
         return items
